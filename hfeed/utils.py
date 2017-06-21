@@ -4,6 +4,7 @@ import requests
 from colorama import colorama_text, Fore, Style
 
 BASE_URL = 'https://hacker-news.firebaseio.com/v0/'
+YCOMB_URL = 'https://news.ycombinator.com/item?id'
 
 
 def fetchItem(id: int):
@@ -25,9 +26,14 @@ def printArticle(item):
         print('Item not a story!')
     else:
         with colorama_text():
-            print(Fore.GREEN + '{}:'.format(item['title']) +
-                  Fore.RESET + Style.DIM + ' {}'.format(item['url']) +
-                  Style.RESET_ALL)
+            if 'url' in item.keys():
+                print(Fore.GREEN + '{}: '.format(item['title']) +
+                      Fore.RESET + Style.DIM + '{}'.format(item['url']) +
+                      Style.RESET_ALL)
+            else:
+                print(Fore.GREEN + '{}: '.format(item['title']) +
+                      Fore.RESET + Style.DIM + YCOMB_URL + str(item['id']) +
+                      Style.RESET_ALL)
         print()
 
 

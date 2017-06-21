@@ -1,7 +1,7 @@
 import sys
 import argparse
 
-from top import getTopArticles
+from fetchlib import getTopArticles, getBestArticles, getNewArticles
 from utils import printArticles
 
 parser = argparse.ArgumentParser(description='Get the latest HackerNews'
@@ -47,14 +47,16 @@ def main():
         if(p.id):
             print('Id is {}'.format(p.id))
     elif (p.type == 'best'):
-        print('Printing the best articles')
+        printArticles(getBestArticles(p.number))
         if(p.id):
             print('Id is {}'.format(p.id))
 
     elif (p.type == 'new'):
-        print('Printing the new articles')
+        printArticles(getNewArticles(p.number))
         if(p.id):
             print('Id is {}'.format(p.id))
+    elif p.type is None:
+        printArticles(getTopArticles(1))
 
 
 if __name__ == '__main__':
