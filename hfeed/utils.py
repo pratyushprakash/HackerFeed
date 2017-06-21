@@ -1,7 +1,9 @@
 import json
 import requests
+import webbrowser
 
 from colorama import colorama_text, Fore, Style
+
 
 BASE_URL = 'https://hacker-news.firebaseio.com/v0/'
 YCOMB_URL = 'https://news.ycombinator.com/item?id'
@@ -21,23 +23,33 @@ def fetchItems(ids: list):
     return articles
 
 
-def printArticle(item):
+def formatItem(item):
     if not item['type'] == 'story':
-        print('Item not a story!')
+        return 'Item not a story!'
     else:
         with colorama_text():
             if 'url' in item.keys():
-                print(Fore.GREEN + '{}: '.format(item['title']) +
-                      Fore.RESET + Style.DIM + '{}'.format(item['url']) +
-                      Style.RESET_ALL)
+                return str(Fore.YELLOW + '{}: '.format(item['title']) +
+                           Fore.RESET + Style.DIM + '{}'.format(item['url']) +
+                           Style.RESET_ALL)
             else:
-                print(Fore.GREEN + '{}: '.format(item['title']) +
-                      Fore.RESET + Style.DIM + YCOMB_URL + str(item['id']) +
-                      Style.RESET_ALL)
+                return str(Fore.YELLOW + '{}: '.format(item['title']) +
+                           Fore.RESET + Style.DIM + YCOMB_URL +
+                           str(item['id']) + Style.RESET_ALL)
+
+
+def printArticles(articles: list, show_numbering=True):
+    print()
+    for x in range(len(articles)):
+        if show_numbering:
+            print('{}) {}'.format(str(x+1), formatItem(articles[x])))
+        else:
+            print(formatItem(articles[x]))
         print()
 
 
-def printArticles(articles: list):
-    print()
-    for article in articles:
-        printArticle(article)
+def openItem(item):
+    if 'url' in item.keys():
+        webbrowser.open(item['url'])
+    else:
+        webbrowser.open(YCOMB_URL + str(item['id']))
