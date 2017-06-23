@@ -24,18 +24,15 @@ def fetchItems(ids: list):
 
 
 def formatItem(item):
-    if not item['type'] == 'story':
-        return 'Item not a story!'
-    else:
-        with colorama_text():
-            if 'url' in item.keys():
-                return str(Fore.YELLOW + '{}: '.format(item['title']) +
-                           Fore.RESET + Style.DIM + '{}'.format(item['url']) +
-                           Style.RESET_ALL)
-            else:
-                return str(Fore.YELLOW + '{}: '.format(item['title']) +
-                           Fore.RESET + Style.DIM + YCOMB_URL +
-                           str(item['id']) + Style.RESET_ALL)
+    with colorama_text():
+        if 'url' in item.keys():
+            return str(Fore.YELLOW + '{}: '.format(item['title']) +
+                       Fore.RESET + Style.DIM + '{}'.format(item['url']) +
+                       Style.RESET_ALL)
+        else:
+            return str(Fore.YELLOW + '{}: '.format(item['title']) +
+                       Fore.RESET + Style.DIM + YCOMB_URL +
+                       str(item['id']) + Style.RESET_ALL)
 
 
 def printArticles(articles: list, show_numbering=True):
