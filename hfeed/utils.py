@@ -75,3 +75,10 @@ def clearSavedArticles():
     path = getArticlesPath()
     with open(path, 'w') as data_file:
         data_file.write('[]')
+
+
+def removeSavedArticles(num: int=1):
+    path = getArticlesPath()
+
+    parser = savedparser(path)
+    parser.remove(num)

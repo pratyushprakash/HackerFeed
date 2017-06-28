@@ -30,3 +30,13 @@ class savedparser:
 
         with open(self.saved_path, 'w') as save_file:
             json.dump(articles, save_file)
+
+    def remove(self, num: int=1):
+
+        with open(self.saved_path) as save_file:
+            articles = json.load(save_file)
+
+        articles = articles[:num-1] + articles[num:]
+
+        with open(self.saved_path, 'w') as save_file:
+            json.dump(articles, save_file)

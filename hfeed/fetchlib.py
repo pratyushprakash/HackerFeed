@@ -70,7 +70,10 @@ def getBestArticles(number: int=5,
     return articles
 
 
-def getSavedArticles(number: int=5):
+def getSavedArticles(number: int=5, display_all: bool=False):
     parser = savedparser(getArticlesPath())
+
+    if display_all:
+        return parser.parse()
 
     return parser.parse()[:number]

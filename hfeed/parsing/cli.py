@@ -71,5 +71,10 @@ def getParser():
                                     'be opened')
     saved_parser_group.add_argument('-c', '--clear', action='store_true',
                                     help='Clear your saved articles')
+    saved_parser_group.add_argument('-r', '--remove', type=int,
+                                    help='Number of the article to be'
+                                    'removed')
+    saved_parser_group.add_argument('-a', '--all', action='store_true',
+                                    help='Display all saved Articles')
 
     return hfeedParser
