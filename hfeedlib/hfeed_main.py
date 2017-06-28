@@ -1,10 +1,10 @@
 import sys
 
-from fetchlib import (getTopArticles, getBestArticles,
+from .fetchlib import (getTopArticles, getBestArticles,
                       getNewArticles, getSavedArticles)
-from utils import (printArticles, openItem,
+from .utils import (printArticles, openItem,
                    clearSavedArticles, removeSavedArticles)
-from parsing.cli import getParser
+from .parsing.cli import getParser
 
 
 def main(args=[]):

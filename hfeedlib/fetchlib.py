@@ -1,8 +1,8 @@
 import json
 import requests
 
-from utils import fetchItem, getArticlesPath
-from parsing.save import savedparser
+from .utils import fetchItem, getArticlesPath
+from .parsing.save import savedparser
 
 BASE_URL = 'https://hacker-news.firebaseio.com/v0/'
 
