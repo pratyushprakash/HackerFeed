@@ -1,14 +1,23 @@
 from setuptools import setup, find_packages
+from codecs import open
+from os import path
 
 
-config = {
-    'description': 'Read hackernews right from your terminal!',
-    'author': 'Pratyush Prakash',
-    'version': '0.1',
-    'install_requires': ['colorama', 'requests'],
-    'packages': find_packages(),
-    'scripts': ['bin/hfeed'],
-    'name': 'hackerfeed'
-    }
+here = path.abspath(path.dirname(__file__))
 
-setup(**config)
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
+setup(
+    name='hackerfeed',
+    version='0.1',
+    description='Read hackernews right from your terminal!',
+    long_description=long_description,
+    author='Pratyush Prakash',
+    authr_email='pratyushprakash@live.co.uk',
+    license='MIT',
+    keywords='news hacker hackernews terminal',
+    packages=find_packages(),
+    install_requires=['colorama', 'requests'],
+    scripts=['bin/hfeed']
+    )
