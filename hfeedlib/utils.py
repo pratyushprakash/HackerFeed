@@ -8,7 +8,7 @@ from colorama import colorama_text, Fore, Style
 from .parsing.save import savedparser
 
 BASE_URL = 'https://hacker-news.firebaseio.com/v0/'
-YCOMB_URL = 'https://news.ycombinator.com/item?id'
+YCOMB_URL = 'https://news.ycombinator.com/item?id='
 
 
 def fetchItem(id: int, save_flag: bool=False):

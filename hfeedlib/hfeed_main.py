@@ -1,9 +1,7 @@
-import sys
-
 from .fetchlib import (getTopArticles, getBestArticles,
-                      getNewArticles, getSavedArticles)
+                       getNewArticles, getSavedArticles)
 from .utils import (printArticles, openItem,
-                   clearSavedArticles, removeSavedArticles)
+                    clearSavedArticles, removeSavedArticles)
 from .parsing.cli import getParser
 
 
@@ -49,7 +47,3 @@ def main(args=[]):
     elif p.type is None:
         printArticles([getTopArticles(1, single=True, save_flag=p.save)],
                       show_numbering=False)
-
-
-if __name__ == '__main__':
-    main(sys.argv[1:])
