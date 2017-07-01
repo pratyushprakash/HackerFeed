@@ -5,6 +5,19 @@ Read HackerNews without leaving the terminal!
 HackerFeed is a terminal app to read the latest articles on HackerNews. 
 It also supports saving articles.
 
+### Installation
+
+```
+pip install hackerfeed
+```
+
+### Usage
+
+```
+$ hfeed
+```
+:)
+
 ### Commands
 
 1) top - list the top trending articles
