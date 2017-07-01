@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 config = {
@@ -6,7 +6,7 @@ config = {
     'author': 'Pratyush Prakash',
     'version': '0.1',
     'install_requires': ['colorama', 'requests'],
-    'packages': ['hfeedlib', 'hfeedlib/parsing'],
+    'packages': find_packages(),
     'scripts': ['bin/hfeed'],
     'name': 'hackerfeed'
     }
